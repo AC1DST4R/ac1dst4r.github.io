@@ -1,944 +1,686 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AC1D's Apps | Projects, Experiments & Tools</title>
+    <title>AC1DST4R — Home</title>
+    <meta name="description" content="AC1DST4R — Digital artist, programmer, and creator.">
+    <meta name="theme-color" content="#0d0d0d">
 
-<meta name="title" content="AC1D's Apps | Projects, Experiments & Tools">
-<meta name="description" content="Projects, experiments, works in progress, and released tools created by AC1DST4R.">
-<meta name="author" content="AC1DST4R">
-<meta name="robots" content="index, follow">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-<link rel="canonical" href="https://AC1DST4R.github.io/Apps/">
+        html {
+            scroll-behavior: smooth;
+        }
 
-<link rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/icon.jpg">
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% -10%, rgba(255, 40, 40, 0.12), transparent 35%),
+                #0d0d0d;
+            color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-<link rel="apple-touch-icon"
-      href="https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/icon.jpg">
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="AC1D's Apps">
-<meta property="og:description" content="Projects, experiments, works in progress, and released tools created by AC1DST4R.">
-<meta property="og:url" content="https://AC1DST4R.github.io/Apps/">
-<meta property="og:image" content="https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/preview.png">
+        .container {
+            width: min(1050px, calc(100% - 40px));
+            margin: auto;
+        }
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AC1D's Apps">
-<meta name="twitter:description" content="Projects, experiments, works in progress, and released tools by AC1DST4R.">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/preview.png">
+        header {
+            padding: 28px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            background: rgba(13, 13, 13, 0.75);
+            backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "AC1D's Apps",
-  "url": "https://AC1DST4R.github.io/Apps/",
-  "image": "https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/preview.png",
-  "author": {
-    "@type": "Person",
-    "name": "AC1DST4R"
-  }
-}
-</script>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
 
-<style>
-* {
-  box-sizing: border-box;
-}
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
 
-html {
-  scroll-behavior: smooth;
-}
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            object-fit: cover;
+            background: #181818;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  padding: 48px 18px;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Helvetica,
-    Arial,
-    sans-serif;
-  color: #c9d1d9;
-  background:
-    radial-gradient(circle at top, #161b22 0, #0d1117 40%, #090c10 100%);
-}
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            color: #999;
+            font-size: 14px;
+        }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: linear-gradient(to bottom, black, transparent);
-}
+        .nav-links a {
+            transition: color 0.2s ease;
+        }
 
-.container {
-  position: relative;
-  width: 100%;
-  max-width: 850px;
-  margin: 0 auto;
-}
+        .nav-links a:hover {
+            color: #fff;
+        }
 
-.header {
-  margin-bottom: 42px;
-  text-align: center;
-}
+        .hero {
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 90px 0 70px;
+        }
 
-.header-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 11px;
-  margin-bottom: 15px;
-  border: 1px solid #30363d;
-  border-radius: 999px;
-  background: rgba(22,27,34,.75);
-  color: #8b949e;
-  font-size: .78rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-}
+        .hero-content {
+            max-width: 750px;
+        }
 
-.header-badge::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #2ea043;
-  box-shadow: 0 0 10px rgba(46,160,67,.7);
-}
+        .hero-icon {
+            width: 130px;
+            height: 130px;
+            border-radius: 32px;
+            object-fit: cover;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow:
+                0 0 50px rgba(255, 0, 0, 0.08),
+                0 20px 60px rgba(0, 0, 0, 0.5);
+        }
 
-.header h1 {
-  margin: 0;
-  color: #f0f6fc;
-  font-size: clamp(2rem, 6vw, 3rem);
-  letter-spacing: -.045em;
-}
+        .eyebrow {
+            color: #ff4040;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
 
-.header p {
-  max-width: 620px;
-  margin: 12px auto 0;
-  color: #8b949e;
-  font-size: 1rem;
-  line-height: 1.6;
-}
+        h1 {
+            margin: 0;
+            font-size: clamp(42px, 8vw, 76px);
+            line-height: 0.95;
+            letter-spacing: -3px;
+        }
 
-.project-list {
-  display: grid;
-  gap: 14px;
-}
+        .subtitle {
+            margin: 24px auto 0;
+            max-width: 650px;
+            color: #aaa;
+            font-size: 18px;
+            line-height: 1.7;
+        }
 
-.project {
-  position: relative;
-  overflow: hidden;
-  padding: 21px;
-  border: 1px solid #30363d;
-  border-radius: 14px;
-  background: rgba(22,27,34,.82);
-  box-shadow: 0 10px 30px rgba(0,0,0,.12);
-  backdrop-filter: blur(12px);
-  transition:
-    transform .18s ease,
-    border-color .18s ease,
-    box-shadow .18s ease;
-}
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
 
-.project::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,.035),
-    transparent 35%
-  );
-}
+        .button {
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #171717;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
 
-.project:hover {
-  transform: translateY(-3px);
-  border-color: #484f58;
-  box-shadow: 0 15px 35px rgba(0,0,0,.22);
-}
+        .button:hover {
+            transform: translateY(-2px);
+            background: #202020;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
 
-.project-header {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 15px;
-}
+        .button.primary {
+            background: #e92727;
+            border-color: #e92727;
+        }
 
-.project-title {
-  color: #f0f6fc;
-  font-size: 1.15rem;
-  font-weight: 650;
-  letter-spacing: -.01em;
-}
+        .button.primary:hover {
+            background: #ff3434;
+            border-color: #ff3434;
+        }
 
-.project-type {
-  flex-shrink: 0;
-  padding: 4px 8px;
-  border: 1px solid #30363d;
-  border-radius: 999px;
-  background: #0d1117;
-  color: #8b949e;
-  font-size: .7rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
+        section {
+            padding: 80px 0;
+        }
 
-.project-desc {
-  position: relative;
-  z-index: 1;
-  max-width: 680px;
-  margin: 8px 0 17px;
-  color: #8b949e;
-  font-size: .92rem;
-  line-height: 1.55;
-}
+        .section-title {
+            margin-bottom: 30px;
+        }
 
-.buttons {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  gap: 9px;
-  flex-wrap: wrap;
-}
+        .section-title h2 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: -1px;
+        }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  padding: 8px 13px;
-  border: 1px solid #30363d;
-  border-radius: 8px;
-  background: #21262d;
-  color: #c9d1d9;
-  text-decoration: none;
-  font-size: .87rem;
-  font-weight: 550;
-  transition:
-    background .15s ease,
-    border-color .15s ease,
-    color .15s ease;
-}
+        .section-title p {
+            margin: 8px 0 0;
+            color: #777;
+        }
 
-.btn:hover {
-  border-color: #6e7681;
-  background: #30363d;
-  color: #fff;
-}
+        .project-card {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            background: rgba(20, 20, 20, 0.8);
+            overflow: hidden;
+            margin-bottom: 14px;
+            transition: border-color 0.2s ease;
+        }
 
-.btn.primary {
-  border-color: #238636;
-  background: #238636;
-  color: #fff;
-}
+        .project-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
 
-.btn.primary:hover {
-  border-color: #2ea043;
-  background: #2ea043;
-}
+        .project-header {
+            width: 100%;
+            padding: 22px;
+            border: 0;
+            background: transparent;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            text-align: left;
+            font: inherit;
+        }
 
-.btn.quest {
-  border-color: #8957e5;
-  background: rgba(137,87,229,.12);
-  color: #c8a8ff;
-}
+        .project-header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-.btn.quest:hover {
-  border-color: #a371f7;
-  background: rgba(137,87,229,.22);
-}
+        .project-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #191919;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 20px;
+        }
 
-.footer {
-  margin-top: 40px;
-  padding-top: 22px;
-  border-top: 1px solid #21262d;
-  color: #484f58;
-  font-size: .8rem;
-  text-align: center;
-}
+        .project-name {
+            font-size: 17px;
+            font-weight: 700;
+        }
 
-@media (max-width: 560px) {
-  body {
-    padding: 30px 13px;
-  }
+        .project-description {
+            margin-top: 4px;
+            color: #777;
+            font-size: 13px;
+        }
 
-  .project {
-    padding: 17px;
-  }
+        .arrow {
+            color: #777;
+            font-size: 18px;
+            transition: transform 0.25s ease;
+        }
 
-  .project-header {
-    flex-direction: column;
-    gap: 8px;
-  }
+        .project-card.open .arrow {
+            transform: rotate(180deg);
+        }
 
-  .project-type {
-    align-self: flex-start;
-  }
+        .project-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease;
+        }
 
-  .buttons {
-    flex-direction: column;
-  }
+        .project-card.open .project-content {
+            grid-template-rows: 1fr;
+        }
 
-  .btn {
-    width: 100%;
-  }
-}
-</style>
+        .project-inner {
+            overflow: hidden;
+        }
+
+        .project-list {
+            padding: 0 22px 22px;
+            display: grid;
+            gap: 9px;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 17px;
+            border-radius: 12px;
+            background: #151515;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .project-link:hover {
+            background: #1c1c1c;
+            transform: translateX(3px);
+        }
+
+        .project-link-title {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .project-link-description {
+            color: #666;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        .external {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .info-card {
+            padding: 25px;
+            border-radius: 18px;
+            background: #141414;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .info-card h3 {
+            margin: 0 0 10px;
+            font-size: 17px;
+        }
+
+        .info-card p {
+            margin: 0;
+            color: #888;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        footer {
+            padding: 45px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            color: #555;
+            font-size: 13px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .red {
+            color: #e92727;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                width: min(100% - 28px, 1050px);
+            }
+
+            header {
+                padding: 18px 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 75px 0 65px;
+            }
+
+            .hero-icon {
+                width: 105px;
+                height: 105px;
+                border-radius: 26px;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+    <div class="container">
+        <nav>
+            <a href="/" class="brand">
+                <img
+                    src="https://github.com/AC1DST4R.png"
+                    alt="AC1DST4R"
+                    class="brand-icon"
+                >
+                <span>AC1DST4R</span>
+            </a>
 
-<header class="header">
-  <div class="header-badge">AC1DST4R</div>
-
-  <h1>Active Apps</h1>
-
-  <p>
-    Projects, experiments, works in progress, and released tools.
-    Built, tested, and maintained by AC1DST4R.
-  </p>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="https://github.com/AC1DST4R" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </nav>
+    </div>
 </header>
 
-<main class="project-list">
-
-  <!-- 90 -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">90</div>
-      <div class="project-type">Game</div>
-    </div>
-
-    <div class="project-desc">
-      A browser-based A-90 experience featuring warnings,
-      stillness detection, attacks, and jumpscare mechanics.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/90"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/90/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- A90B -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">A90B</div>
-      <div class="project-type">Quest 3 VR</div>
-    </div>
-
-    <div class="project-desc">
-      A Meta Quest 3 exclusive immersive adaptation of A-90b,
-      built around passthrough VR and mixed-reality immersion.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/a90b"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn quest"
-         href="https://AC1DST4R.github.io/a90b/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Audio Visualizer -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Audio Visualizer</div>
-      <div class="project-type">Tool</div>
-    </div>
-
-    <div class="project-desc">
-      A simple real-time audio visualizer and oscilloscope experiment.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Audio-Visualizer"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Audio-Visualizer/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Autoclear History -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Autoclear History Extension v1.2</div>
-      <div class="project-type">Firefox</div>
-    </div>
-
-    <div class="project-desc">
-      A browser extension that automatically clears browsing history.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/History-Autoclear-Extension-V1.2"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://addons.mozilla.org/en-US/firefox/addon/ac1d-s-auto-history-clearer/"
-         target="_blank"
-         rel="noopener">
-        Extension
-      </a>
-
-      <a class="btn"
-         href="https://AC1DST4R.github.io/History-Autoclear-Extension-V1.2/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Beginner HTML Sandbox -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Beginner HTML Sandbox</div>
-      <div class="project-type">Sandbox</div>
-    </div>
-
-    <div class="project-desc">
-      A sandbox for testing ideas, features, experiments,
-      and random web development concepts.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Code-Sandbox/tree/main"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Code-Sandbox/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Black Knife -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Black_Knife</div>
-      <div class="project-type">Project</div>
-    </div>
-
-    <div class="project-desc">
-      An experimental project currently under development.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Black_Knife"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Black_Knife/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- C00lGUI -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">C00lGUI v9 Reimagined</div>
-      <div class="project-type">Project</div>
-    </div>
-
-    <div class="project-desc">
-      An emulation close to the original C00lGUI with
-      additional functionality and improvements.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/C00lGUI"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/C00lGUI/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Camera Pro -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Camera-Pro-v2</div>
-      <div class="project-type">Tool</div>
-    </div>
-
-    <div class="project-desc">
-      Camera Pro v2, a browser-based camera project.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Camera-Pro-v2"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Camera-Pro-v2/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Downloads -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Downloads</div>
-      <div class="project-type">Project</div>
-    </div>
-
-    <div class="project-desc">
-      A collection and download hub for AC1DST4R projects and files.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Downloads"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Downloads/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- File Encoder V2 -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">FileEncoderV2</div>
-      <div class="project-type">Tool</div>
-    </div>
-
-    <div class="project-desc">
-      The second version of the custom file encoder and decoder project.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/FileEncoderV2"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/FileEncoderV2/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- File Extension Creator -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">File Extension Creator</div>
-      <div class="project-type">Tool</div>
-    </div>
-
-    <div class="project-desc">
-      Create and download files with custom extensions instantly.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/File-Creator"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/File-Creator/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- GitChat -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">GitChat v1</div>
-      <div class="project-type">App</div>
-    </div>
-
-    <div class="project-desc">
-      A lightweight web-based chat application.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/GitChatV1"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/GitChatV1/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Graphite -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Graphite v1.0</div>
-      <div class="project-type">Firefox</div>
-    </div>
-
-    <div class="project-desc">
-      A dark Graphite-inspired theme for Firefox.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Graphite-v1.0"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://addons.mozilla.org/en-US/firefox/addon/graphite_v1/"
-         target="_blank"
-         rel="noopener">
-        Extension
-      </a>
-
-      <a class="btn"
-         href="https://AC1DST4R.github.io/Graphite-v1.0/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Memorizebyheart -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Memorizebyheart</div>
-      <div class="project-type">Web App</div>
-    </div>
-
-    <div class="project-desc">
-      A feature-rich memorization and study experience.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Memorizebyheart"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Memorizebyheart/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Minecraft -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Minecraft</div>
-      <div class="project-type">Web Port</div>
-    </div>
-
-    <div class="project-desc">
-      An educational browser port of Minecraft from Eaglercraft.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Minecraft/"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Minecraft/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- MineSwept -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">MineSwept</div>
-      <div class="project-type">Game</div>
-    </div>
-
-    <div class="project-desc">
-      A Minesweeper-inspired browser game with additional
-      mechanics and experiments.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/MineSwept"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/MineSwept/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Service Hour Tracker -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Service Hour Tracker</div>
-      <div class="project-type">Tool</div>
-    </div>
-
-    <div class="project-desc">
-      A simple web tool for tracking, managing, and calculating
-      service hours.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Service-Hour-Tracker"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Service-Hour-Tracker/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Super Awesome Clicker Game -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Super-Aw3some-clicker-game</div>
-      <div class="project-type">Game</div>
-    </div>
-
-    <div class="project-desc">
-      A simple browser-based clicker game.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Super-Aw3some-clicker-game"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Super-Aw3some-clicker-game/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Web Ports -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Web Ports</div>
-      <div class="project-type">Collection</div>
-    </div>
-
-    <div class="project-desc">
-      A collection of browser ports originally hosted through gn-math.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Web-Ports"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Web-Ports/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Webhook'd -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Webhook'd</div>
-      <div class="project-type">Discord Tool</div>
-    </div>
-
-    <div class="project-desc">
-      Send messages and embeds through Discord webhooks
-      from a simple interface.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Webhooked"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Webhooked/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
-
-  <!-- Website Down Detector -->
-  <article class="project">
-    <div class="project-header">
-      <div class="project-title">Website-Down-Detector</div>
-      <div class="project-type">Utility</div>
-    </div>
-
-    <div class="project-desc">
-      A down detector for the websites hosted and maintained by AC1DST4R.
-    </div>
-
-    <div class="buttons">
-      <a class="btn"
-         href="https://github.com/AC1DST4R/Website-Down-Detector"
-         target="_blank"
-         rel="noopener">
-        Repository
-      </a>
-
-      <a class="btn primary"
-         href="https://AC1DST4R.github.io/Website-Down-Detector/"
-         target="_blank"
-         rel="noopener">
-        Website
-      </a>
-    </div>
-  </article>
+<main>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+
+                <img
+                    src="https://github.com/AC1DST4R.png"
+                    alt="AC1DST4R icon"
+                    class="hero-icon"
+                >
+
+                <div class="eyebrow">also known as ST4R</div>
+
+                <h1>AC1DST4R</h1>
+
+                <p class="subtitle">
+                    Digital artist and programmer creating websites, applications,
+                    experiments, tools, and whatever else comes to mind.
+                </p>
+
+                <div class="buttons">
+                    <a class="button primary" href="#projects">
+                        Explore Projects
+                    </a>
+
+                    <a
+                        class="button"
+                        href="https://github.com/AC1DST4R"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        GitHub
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Projects</h2>
+                <p>Things I've built, worked on, or currently maintain.</p>
+            </div>
+
+            <!-- APPS -->
+
+            <div class="project-card">
+
+                <button class="project-header" type="button">
+                    <div class="project-header-left">
+
+                        <div class="project-icon">
+                            ◈
+                        </div>
+
+                        <div>
+                            <div class="project-name">Apps</div>
+                            <div class="project-description">
+                                Web applications and interactive projects
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="arrow">⌄</div>
+                </button>
+
+                <div class="project-content">
+                    <div class="project-inner">
+
+                        <div class="project-list">
+
+                            <a
+                                class="project-link"
+                                href="https://ac1dst4r.github.io/Apps/"
+                            >
+                                <div>
+                                    <div class="project-link-title">
+                                        Apps Directory
+                                    </div>
+                                    <div class="project-link-description">
+                                        Browse all available applications
+                                    </div>
+                                </div>
+
+                                <span class="external">↗</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- REPOSITORIES -->
+
+            <div class="project-card">
+
+                <button class="project-header" type="button">
+                    <div class="project-header-left">
+
+                        <div class="project-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <div>
+                            <div class="project-name">Repositories</div>
+                            <div class="project-description">
+                                Source code and development projects
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="arrow">⌄</div>
+                </button>
+
+                <div class="project-content">
+                    <div class="project-inner">
+
+                        <div class="project-list">
+
+                            <a
+                                class="project-link"
+                                href="https://github.com/AC1DST4R/FATED"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div>
+                                    <div class="project-link-title">
+                                        FATED
+                                    </div>
+                                    <div class="project-link-description">
+                                        Project repository
+                                    </div>
+                                </div>
+
+                                <span class="external">↗</span>
+                            </a>
+
+                            <a
+                                class="project-link"
+                                href="https://github.com/AC1DST4R/Web-Ports"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div>
+                                    <div class="project-link-title">
+                                        Web-Ports
+                                    </div>
+                                    <div class="project-link-description">
+                                        Web-based game ports
+                                    </div>
+                                </div>
+
+                                <span class="external">↗</span>
+                            </a>
+
+                            <a
+                                class="project-link"
+                                href="https://github.com/AC1DST4R/Uptime-Keeper"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div>
+                                    <div class="project-link-title">
+                                        Uptime-Keeper
+                                    </div>
+                                    <div class="project-link-description">
+                                        Discord uptime and monitoring project
+                                    </div>
+                                </div>
+
+                                <span class="external">↗</span>
+                            </a>
+
+                            <a
+                                class="project-link"
+                                href="https://github.com/AC1DST4R"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div>
+                                    <div class="project-link-title">
+                                        All Repositories
+                                    </div>
+                                    <div class="project-link-description">
+                                        View everything on GitHub
+                                    </div>
+                                </div>
+
+                                <span class="external">↗</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About</h2>
+                <p>A little bit about what happens here.</p>
+            </div>
+
+            <div class="about">
+
+                <div class="info-card">
+                    <h3>Who am I?</h3>
+                    <p>
+                        I'm AC1DST4R, also known as ST4R. I make digital art,
+                        write code, build websites, and experiment with
+                        different ideas and technologies.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>What is this?</h3>
+                    <p>
+                        This site acts as a central hub for my projects,
+                        applications, repositories, experiments, and other
+                        things I decide to put together.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
 </main>
 
-<footer class="footer">
-  AC1DST4R · Projects, experiments & tools
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <span>© 2026 <span class="red">AC1DST4R</span></span>
+            <span>Built with HTML, CSS & JavaScript.</span>
+        </div>
+    </div>
 </footer>
 
-</div>
+<script>
+    document.querySelectorAll(".project-header").forEach(button => {
+        button.addEventListener("click", () => {
+            const card = button.closest(".project-card");
+            card.classList.toggle("open");
+        });
+    });
+</script>
 
 </body>
 </html>
