@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AC1DST4R — Home</title>
-    <meta name="description" content="AC1DST4R — Digital artist, programmer, and creator.">
-    <meta name="theme-color" content="#0d0d0d">
+    <title>AC1DST4R — Portfolio</title>
+    <meta name="description" content="AC1DST4R — Digital artist, programmer, and independent creator.">
+    <meta name="theme-color" content="#0a0a0a">
 
     <style>
         * {
@@ -19,12 +19,21 @@
 
         body {
             margin: 0;
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at 50% -10%, rgba(255, 40, 40, 0.12), transparent 35%),
-                #0d0d0d;
+            background: #0a0a0a;
             color: #f5f5f5;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 50% -10%, rgba(255, 35, 35, 0.10), transparent 35%),
+                radial-gradient(circle at 0% 100%, rgba(255, 35, 35, 0.04), transparent 30%);
+            z-index: -1;
         }
 
         a {
@@ -33,25 +42,24 @@
         }
 
         .container {
-            width: min(1050px, calc(100% - 40px));
+            width: min(1100px, calc(100% - 40px));
             margin: auto;
         }
 
         header {
-            padding: 28px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-            background: rgba(13, 13, 13, 0.75);
-            backdrop-filter: blur(16px);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            background: rgba(10,10,10,0.82);
+            backdrop-filter: blur(18px);
         }
 
         nav {
+            height: 72px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            justify-content: space-between;
         }
 
         .brand {
@@ -62,19 +70,19 @@
             letter-spacing: 1px;
         }
 
-        .brand-icon {
+        .brand img {
             width: 38px;
             height: 38px;
             border-radius: 11px;
             object-fit: cover;
-            background: #181818;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .nav-links {
             display: flex;
-            gap: 22px;
-            color: #999;
+            align-items: center;
+            gap: 28px;
+            color: #888;
             font-size: 14px;
         }
 
@@ -87,169 +95,175 @@
         }
 
         .hero {
-            min-height: 72vh;
-            display: flex;
+            padding: 125px 0 115px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 80px;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 90px 0 70px;
-        }
-
-        .hero-content {
-            max-width: 750px;
-        }
-
-        .hero-icon {
-            width: 130px;
-            height: 130px;
-            border-radius: 32px;
-            object-fit: cover;
-            margin-bottom: 28px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow:
-                0 0 50px rgba(255, 0, 0, 0.08),
-                0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .eyebrow {
-            color: #ff4040;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 3px;
+            color: #ff3838;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 18px;
         }
 
         h1 {
             margin: 0;
-            font-size: clamp(42px, 8vw, 76px);
+            font-size: clamp(48px, 8vw, 86px);
             line-height: 0.95;
-            letter-spacing: -3px;
+            letter-spacing: -4px;
         }
 
-        .subtitle {
-            margin: 24px auto 0;
-            max-width: 650px;
-            color: #aaa;
-            font-size: 18px;
-            line-height: 1.7;
+        .hero-description {
+            max-width: 680px;
+            margin: 28px 0 0;
+            color: #999;
+            font-size: 19px;
+            line-height: 1.8;
         }
 
-        .buttons {
+        .hero-description strong {
+            color: #ddd;
+            font-weight: 600;
+        }
+
+        .hero-buttons {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 30px;
+            margin-top: 34px;
         }
 
         .button {
             padding: 12px 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: #171717;
-            color: #fff;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #151515;
             font-size: 14px;
-            font-weight: 600;
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                border-color 0.2s ease;
+            font-weight: 700;
+            transition: 0.2s ease;
         }
 
         .button:hover {
             transform: translateY(-2px);
-            background: #202020;
-            border-color: rgba(255, 255, 255, 0.2);
+            background: #1c1c1c;
+            border-color: rgba(255,255,255,0.2);
         }
 
         .button.primary {
-            background: #e92727;
-            border-color: #e92727;
+            background: #e72b2b;
+            border-color: #e72b2b;
         }
 
         .button.primary:hover {
-            background: #ff3434;
-            border-color: #ff3434;
+            background: #ff3737;
+            border-color: #ff3737;
+        }
+
+        .hero-icon {
+            width: 250px;
+            height: 250px;
+            border-radius: 42px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow:
+                0 35px 90px rgba(0,0,0,0.6),
+                0 0 80px rgba(255,0,0,0.07);
         }
 
         section {
-            padding: 80px 0;
+            padding: 95px 0;
         }
 
-        .section-title {
-            margin-bottom: 30px;
+        .section-heading {
+            margin-bottom: 38px;
         }
 
-        .section-title h2 {
+        .section-heading .label {
+            color: #ff3838;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .section-heading h2 {
+            margin: 7px 0 8px;
+            font-size: 34px;
+            letter-spacing: -1.5px;
+        }
+
+        .section-heading p {
             margin: 0;
-            font-size: 32px;
-            letter-spacing: -1px;
-        }
-
-        .section-title p {
-            margin: 8px 0 0;
             color: #777;
+            max-width: 650px;
         }
 
         .project-card {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            background: rgba(20, 20, 20, 0.8);
-            overflow: hidden;
             margin-bottom: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            background: rgba(18,18,18,0.85);
+            overflow: hidden;
             transition: border-color 0.2s ease;
         }
 
         .project-card:hover {
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255,255,255,0.14);
         }
 
         .project-header {
             width: 100%;
-            padding: 22px;
+            padding: 23px;
             border: 0;
             background: transparent;
-            color: #fff;
+            color: white;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            cursor: pointer;
             text-align: left;
             font: inherit;
         }
 
-        .project-header-left {
+        .project-left {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
         .project-icon {
-            width: 45px;
-            height: 45px;
+            width: 46px;
+            height: 46px;
             display: grid;
             place-items: center;
             border-radius: 12px;
-            background: #191919;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 20px;
+            background: #171717;
+            border: 1px solid rgba(255,255,255,0.07);
+            font-size: 18px;
         }
 
-        .project-name {
-            font-size: 17px;
-            font-weight: 700;
+        .project-title {
+            font-size: 16px;
+            font-weight: 750;
         }
 
-        .project-description {
-            margin-top: 4px;
-            color: #777;
+        .project-subtitle {
+            color: #666;
             font-size: 13px;
+            margin-top: 2px;
         }
 
         .arrow {
-            color: #777;
-            font-size: 18px;
+            color: #666;
             transition: transform 0.25s ease;
         }
 
@@ -272,9 +286,9 @@
         }
 
         .project-list {
-            padding: 0 22px 22px;
             display: grid;
             gap: 9px;
+            padding: 0 23px 23px;
         }
 
         .project-link {
@@ -282,63 +296,115 @@
             align-items: center;
             justify-content: space-between;
             padding: 15px 17px;
-            border-radius: 12px;
-            background: #151515;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease;
+            border-radius: 11px;
+            background: #141414;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.2s ease;
         }
 
         .project-link:hover {
-            background: #1c1c1c;
+            background: #1b1b1b;
             transform: translateX(3px);
         }
 
         .project-link-title {
-            font-weight: 600;
+            font-weight: 650;
             font-size: 14px;
         }
 
         .project-link-description {
             color: #666;
             font-size: 12px;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         .external {
             color: #555;
-            font-size: 14px;
         }
 
-        .about {
+        .principles {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
         }
 
-        .info-card {
-            padding: 25px;
-            border-radius: 18px;
-            background: #141414;
-            border: 1px solid rgba(255, 255, 255, 0.07);
+        .principle {
+            padding: 28px;
+            min-height: 200px;
+            border-radius: 17px;
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.07);
+            transition: 0.25s ease;
         }
 
-        .info-card h3 {
-            margin: 0 0 10px;
-            font-size: 17px;
+        .principle:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,0.14);
         }
 
-        .info-card p {
+        .principle-number {
+            color: #ff3838;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .principle h3 {
+            margin: 18px 0 9px;
+            font-size: 19px;
+        }
+
+        .principle p {
             margin: 0;
-            color: #888;
-            line-height: 1.7;
+            color: #777;
             font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 15px;
+        }
+
+        .about-card {
+            padding: 30px;
+            border-radius: 17px;
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .about-card h3 {
+            margin: 0 0 12px;
+            font-size: 19px;
+        }
+
+        .about-card p {
+            margin: 0;
+            color: #777;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            padding: 6px 10px;
+            border-radius: 7px;
+            background: #191919;
+            color: #888;
+            font-size: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
         }
 
         footer {
-            padding: 45px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 42px 0;
             color: #555;
             font-size: 13px;
         }
@@ -346,52 +412,55 @@
         .footer-content {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .red {
-            color: #e92727;
+            color: #e72b2b;
         }
 
-        @media (max-width: 700px) {
-            .container {
-                width: min(100% - 28px, 1050px);
+        @media (max-width: 800px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
             }
 
-            header {
-                padding: 18px 0;
+            .hero-icon {
+                width: 150px;
+                height: 150px;
+                border-radius: 28px;
+            }
+
+            .principles,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 85px 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 28px, 1100px);
             }
 
             .nav-links {
                 display: none;
             }
 
-            .hero {
-                min-height: auto;
-                padding: 75px 0 65px;
-            }
-
-            .hero-icon {
-                width: 105px;
-                height: 105px;
-                border-radius: 26px;
-            }
-
             h1 {
                 letter-spacing: -2px;
             }
 
-            .subtitle {
+            .hero-description {
                 font-size: 16px;
             }
 
             section {
-                padding: 60px 0;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
+                padding: 70px 0;
             }
         }
     </style>
@@ -402,20 +471,21 @@
 <header>
     <div class="container">
         <nav>
+
             <a href="/" class="brand">
-                <img
-                    src="https://github.com/AC1DST4R.png"
-                    alt="AC1DST4R"
-                    class="brand-icon"
-                >
+                <img src="https://github.com/AC1DST4R.png" alt="AC1DST4R">
                 <span>AC1DST4R</span>
             </a>
 
             <div class="nav-links">
                 <a href="#projects">Projects</a>
+                <a href="#principles">Principles</a>
                 <a href="#about">About</a>
-                <a href="https://github.com/AC1DST4R" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/AC1DST4R" target="_blank" rel="noopener">
+                    GitHub
+                </a>
             </div>
+
         </nav>
     </div>
 </header>
@@ -424,71 +494,94 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
 
-                <img
-                    src="https://github.com/AC1DST4R.png"
-                    alt="AC1DST4R icon"
-                    class="hero-icon"
-                >
+            <div class="hero-grid">
 
-                <div class="eyebrow">also known as ST4R</div>
+                <div>
 
-                <h1>AC1DST4R</h1>
+                    <div class="eyebrow">
+                        Digital Artist · Programmer · Creator
+                    </div>
 
-                <p class="subtitle">
-                    Digital artist and programmer creating websites, applications,
-                    experiments, tools, and whatever else comes to mind.
-                </p>
+                    <h1>
+                        AC1DST4R
+                    </h1>
 
-                <div class="buttons">
-                    <a class="button primary" href="#projects">
-                        Explore Projects
-                    </a>
+                    <p class="hero-description">
+                        I'm <strong>AC1DST4R</strong>, also known as <strong>ST4R</strong>.
+                        I create digital art, software, websites, tools, and
+                        experimental projects — focused on making things that are
+                        useful, interesting, and accessible.
+                    </p>
 
-                    <a
-                        class="button"
-                        href="https://github.com/AC1DST4R"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        GitHub
-                    </a>
+                    <div class="hero-buttons">
+                        <a class="button primary" href="#projects">
+                            View Projects
+                        </a>
+
+                        <a
+                            class="button"
+                            href="https://github.com/AC1DST4R"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            GitHub
+                        </a>
+                    </div>
+
                 </div>
 
+                <img
+                    class="hero-icon"
+                    src="https://github.com/AC1DST4R.png"
+                    alt="AC1DST4R"
+                >
+
             </div>
+
         </div>
     </section>
+
 
     <section id="projects">
         <div class="container">
 
-            <div class="section-title">
+            <div class="section-heading">
+                <div class="label">Portfolio</div>
                 <h2>Projects</h2>
-                <p>Things I've built, worked on, or currently maintain.</p>
+                <p>
+                    A selection of applications, tools, websites, and
+                    development projects I've worked on.
+                </p>
             </div>
 
-            <!-- APPS -->
 
             <div class="project-card">
 
                 <button class="project-header" type="button">
-                    <div class="project-header-left">
+
+                    <div class="project-left">
 
                         <div class="project-icon">
                             ◈
                         </div>
 
                         <div>
-                            <div class="project-name">Apps</div>
-                            <div class="project-description">
+                            <div class="project-title">
+                                Apps
+                            </div>
+
+                            <div class="project-subtitle">
                                 Web applications and interactive projects
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="arrow">⌄</div>
+                    <div class="arrow">
+                        ⌄
+                    </div>
+
                 </button>
 
                 <div class="project-content">
@@ -504,8 +597,9 @@
                                     <div class="project-link-title">
                                         Apps Directory
                                     </div>
+
                                     <div class="project-link-description">
-                                        Browse all available applications
+                                        Browse my applications and web projects
                                     </div>
                                 </div>
 
@@ -519,51 +613,39 @@
 
             </div>
 
-            <!-- REPOSITORIES -->
 
             <div class="project-card">
 
                 <button class="project-header" type="button">
-                    <div class="project-header-left">
+
+                    <div class="project-left">
 
                         <div class="project-icon">
                             &lt;/&gt;
                         </div>
 
                         <div>
-                            <div class="project-name">Repositories</div>
-                            <div class="project-description">
+                            <div class="project-title">
+                                Repositories
+                            </div>
+
+                            <div class="project-subtitle">
                                 Source code and development projects
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="arrow">⌄</div>
+                    <div class="arrow">
+                        ⌄
+                    </div>
+
                 </button>
 
                 <div class="project-content">
                     <div class="project-inner">
 
                         <div class="project-list">
-
-                            <a
-                                class="project-link"
-                                href="https://github.com/AC1DST4R/FATED"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                <div>
-                                    <div class="project-link-title">
-                                        FATED
-                                    </div>
-                                    <div class="project-link-description">
-                                        Project repository
-                                    </div>
-                                </div>
-
-                                <span class="external">↗</span>
-                            </a>
 
                             <a
                                 class="project-link"
@@ -575,13 +657,15 @@
                                     <div class="project-link-title">
                                         Web-Ports
                                     </div>
+
                                     <div class="project-link-description">
-                                        Web-based game ports
+                                        Web-based game port project
                                     </div>
                                 </div>
 
                                 <span class="external">↗</span>
                             </a>
+
 
                             <a
                                 class="project-link"
@@ -593,6 +677,7 @@
                                     <div class="project-link-title">
                                         Uptime-Keeper
                                     </div>
+
                                     <div class="project-link-description">
                                         Discord uptime and monitoring project
                                     </div>
@@ -600,6 +685,7 @@
 
                                 <span class="external">↗</span>
                             </a>
+
 
                             <a
                                 class="project-link"
@@ -611,8 +697,9 @@
                                     <div class="project-link-title">
                                         All Repositories
                                     </div>
+
                                     <div class="project-link-description">
-                                        View everything on GitHub
+                                        View the complete GitHub portfolio
                                     </div>
                                 </div>
 
@@ -629,32 +716,140 @@
         </div>
     </section>
 
+
+    <section id="principles">
+        <div class="container">
+
+            <div class="section-heading">
+                <div class="label">How I Work</div>
+
+                <h2>
+                    Principles
+                </h2>
+
+                <p>
+                    A few rules I try to keep consistent across my projects.
+                </p>
+            </div>
+
+
+            <div class="principles">
+
+                <div class="principle">
+
+                    <div class="principle-number">
+                        01
+                    </div>
+
+                    <h3>
+                        No Paywalls
+                    </h3>
+
+                    <p>
+                        Core functionality shouldn't be artificially locked
+                        behind subscriptions or premium tiers. If I build it,
+                        I want people to actually be able to use it.
+                    </p>
+
+                </div>
+
+
+                <div class="principle">
+
+                    <div class="principle-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Free Work
+                    </h3>
+
+                    <p>
+                        Public projects are made with accessibility in mind.
+                        My work is intended to remain free to access and use
+                        rather than turning everything into a paid service.
+                    </p>
+
+                </div>
+
+
+                <div class="principle">
+
+                    <div class="principle-number">
+                        03
+                    </div>
+
+                    <h3>
+                        No Advertisements
+                    </h3>
+
+                    <p>
+                        I don't believe every project needs to be monetized
+                        through intrusive advertising. The work should stay
+                        focused on the people using it.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
     <section id="about">
         <div class="container">
 
-            <div class="section-title">
-                <h2>About</h2>
-                <p>A little bit about what happens here.</p>
+            <div class="section-heading">
+                <div class="label">About</div>
+                <h2>Behind the projects</h2>
+                <p>
+                    A little more about what I do.
+                </p>
             </div>
 
-            <div class="about">
 
-                <div class="info-card">
-                    <h3>Who am I?</h3>
+            <div class="about-grid">
+
+                <div class="about-card">
+
+                    <h3>
+                        Creating without unnecessary limits
+                    </h3>
+
                     <p>
-                        I'm AC1DST4R, also known as ST4R. I make digital art,
-                        write code, build websites, and experiment with
-                        different ideas and technologies.
+                        I enjoy building things from the ground up — from
+                        small utilities and web applications to larger
+                        experiments and creative projects. My focus is on
+                        learning, creating, and making useful things rather
+                        than chasing trends.
                     </p>
+
+                    <div class="stack">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">Web Development</span>
+                        <span class="tag">Digital Art</span>
+                    </div>
+
                 </div>
 
-                <div class="info-card">
-                    <h3>What is this?</h3>
+
+                <div class="about-card">
+
+                    <h3>
+                        Independent
+                    </h3>
+
                     <p>
-                        This site acts as a central hub for my projects,
-                        applications, repositories, experiments, and other
-                        things I decide to put together.
+                        My projects are built independently and evolve as I
+                        learn. Some are polished products, others are
+                        experiments — but each one is an opportunity to build
+                        something new.
                     </p>
+
                 </div>
 
             </div>
@@ -664,14 +859,23 @@
 
 </main>
 
+
 <footer>
     <div class="container">
+
         <div class="footer-content">
-            <span>© 2026 <span class="red">AC1DST4R</span></span>
-            <span>Built with HTML, CSS & JavaScript.</span>
+            <span>
+                © 2026 <span class="red">AC1DST4R</span>
+            </span>
+
+            <span>
+                Create freely. Build independently.
+            </span>
         </div>
+
     </div>
 </footer>
+
 
 <script>
     document.querySelectorAll(".project-header").forEach(button => {
