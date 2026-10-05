@@ -4,157 +4,302 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>AC1DST4R Apps | Projects, Experiments & Tools</title>
+<title>AC1D's Apps | Projects, Experiments & Tools</title>
 
-<meta name="title" content="AC1DST4R Apps | Projects, Experiments & Tools">
-<meta name="description" content="Projects, experiments, works in progress, and released tools created by AC1DST4R. Browse apps, utilities, and open-source experiments.">
+<meta name="title" content="AC1D's Apps | Projects, Experiments & Tools">
+<meta name="description" content="Projects, experiments, works in progress, and released tools created by AC1DST4R.">
 <meta name="author" content="AC1DST4R">
 <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://ac1dst4r.github.io/Apps/">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" sizes="16x16"
 href="https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/icon.jpg">
 
 <link rel="apple-touch-icon"
 href="https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/icon.jpg">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="AC1DST4R Apps">
+<meta property="og:title" content="AC1D's Apps">
 <meta property="og:description" content="Projects, experiments, works in progress, and released tools created by AC1DST4R.">
 <meta property="og:url" content="https://ac1dst4r.github.io/Apps/">
 <meta property="og:image" content="https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/preview.png">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AC1DST4R Apps">
+<meta name="twitter:title" content="AC1D's Apps">
 <meta name="twitter:description" content="Projects, experiments, works in progress, and released tools by AC1DST4R.">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/preview.png">
 
-<!-- Structured Data -->
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "WebSite",
- "name": "AC1DST4R Apps",
- "url": "https://ac1dst4r.github.io/Apps/",
- "image": "https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/preview.png",
- "author": {
-   "@type": "Person",
-   "name": "AC1DST4R"
- }
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AC1D's Apps",
+  "url": "https://ac1dst4r.github.io/Apps/",
+  "image": "https://raw.githubusercontent.com/AC1DST4R/Apps/refs/heads/main/Google%20Photos/preview.png",
+  "author": {
+    "@type": "Person",
+    "name": "AC1DST4R"
+  }
 }
 </script>
 
 <style>
-
-body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-background:#0d1117;
-color:#c9d1d9;
-display:flex;
-justify-content:center;
-padding:40px 16px;
+* {
+  box-sizing: border-box;
 }
 
-.container{
-width:100%;
-max-width:720px;
+html {
+  scroll-behavior: smooth;
 }
 
-.header{
-text-align:center;
-margin-bottom:40px;
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif;
+  background:
+    radial-gradient(circle at top, #161b22 0, #0d1117 38%, #090c10 100%);
+  color: #c9d1d9;
+  padding: 48px 18px;
 }
 
-.header h1{
-margin:0;
-font-size:2.2rem;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, black, transparent);
 }
 
-.header p{
-margin-top:8px;
-color:#8b949e;
-font-size:1rem;
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
-.project{
-background:#161b22;
-border:1px solid #30363d;
-border-radius:10px;
-padding:18px;
-margin-bottom:18px;
-transition:transform .15s ease,border-color .15s ease;
+.header {
+  text-align: center;
+  margin-bottom: 42px;
 }
 
-.project:hover{
-transform:translateY(-2px);
-border-color:#8b949e;
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  margin-bottom: 15px;
+  border: 1px solid #30363d;
+  border-radius: 999px;
+  background: rgba(22, 27, 34, .75);
+  color: #8b949e;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
 }
 
-.project-title{
-font-size:1.25rem;
-font-weight:600;
-margin-bottom:6px;
+.header-badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ea043;
+  box-shadow: 0 0 10px rgba(46, 160, 67, .7);
 }
 
-.project-desc{
-font-size:.95rem;
-color:#8b949e;
-margin-bottom:14px;
-line-height:1.4;
+.header h1 {
+  margin: 0;
+  color: #f0f6fc;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -.04em;
 }
 
-.buttons{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
+.header p {
+  max-width: 600px;
+  margin: 12px auto 0;
+  color: #8b949e;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:10px 16px;
-border-radius:8px;
-border:1px solid #30363d;
-background:#21262d;
-color:#c9d1d9;
-text-decoration:none;
-font-size:.95rem;
-font-weight:500;
-transition:background .15s ease,border-color .15s ease;
+.projects {
+  display: grid;
+  gap: 14px;
 }
 
-.btn:hover{
-background:#30363d;
-border-color:#8b949e;
+.project {
+  position: relative;
+  overflow: hidden;
+  padding: 21px;
+  border: 1px solid #30363d;
+  border-radius: 14px;
+  background: rgba(22, 27, 34, .82);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+  backdrop-filter: blur(12px);
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
 }
 
-.btn.primary{
-background:#238636;
-border-color:#2ea043;
-color:#fff;
+.project::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,.035),
+    transparent 35%
+  );
 }
 
-.btn.primary:hover{
-background:#2ea043;
+.project:hover {
+  transform: translateY(-3px);
+  border-color: #484f58;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .22);
 }
 
-.btn[aria-disabled="true"]{
-opacity:.5;
-pointer-events:none;
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
 }
 
-@media (max-width:480px){
-.buttons{
-flex-direction:column;
-}
+.project-title {
+  color: #f0f6fc;
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -.01em;
 }
 
+.project-type {
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border: 1px solid #30363d;
+  border-radius: 999px;
+  color: #8b949e;
+  background: #0d1117;
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.project-desc {
+  max-width: 680px;
+  margin: 8px 0 17px;
+  color: #8b949e;
+  font-size: .92rem;
+  line-height: 1.55;
+}
+
+.buttons {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: #21262d;
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: .87rem;
+  font-weight: 550;
+  transition:
+    background .15s ease,
+    border-color .15s ease,
+    color .15s ease;
+}
+
+.btn:hover {
+  background: #30363d;
+  border-color: #6e7681;
+  color: #fff;
+}
+
+.btn.primary {
+  border-color: #238636;
+  background: #238636;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  border-color: #2ea043;
+  background: #2ea043;
+}
+
+.btn.quest {
+  border-color: #8957e5;
+  background: rgba(137, 87, 229, .12);
+  color: #c8a8ff;
+}
+
+.btn.quest:hover {
+  border-color: #a371f7;
+  background: rgba(137, 87, 229, .22);
+}
+
+.btn[aria-disabled="true"] {
+  opacity: .4;
+  pointer-events: none;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid #21262d;
+  text-align: center;
+  color: #484f58;
+  font-size: .8rem;
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 30px 13px;
+  }
+
+  .project {
+    padding: 17px;
+  }
+
+  .project-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-type {
+    align-self: flex-start;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
 </style>
 </head>
 
@@ -162,153 +307,480 @@ flex-direction:column;
 
 <div class="container">
 
-<div class="header">
-<h1>AC1D's Active Apps</h1>
-<p>Projects, Experiments, Works in Progress, and Released Tools</p>
-</div>
+  <header class="header">
+    <div class="header-badge">AC1DST4R</div>
 
-<div class="project">
-<div class="project-title">Service Hour Tracker</div>
-<div class="project-desc">
-A simple web tool to track, manage, and calculate service hours.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/Service-Hour-Tracker" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://AC1DST4R.github.io/Service-Hour-Tracker/" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+    <h1>Active Apps</h1>
 
-<div class="project">
-<div class="project-title">Beginner HTML Sandbox</div>
-<div class="project-desc">
-A sandbox for testing ideas, features, and random experiments.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/Code-Sandbox/tree/main" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://AC1DST4R.github.io/Code-Sandbox/" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+    <p>
+      Projects, experiments, works in progress, and released tools.
+      Built, tested, and maintained by AC1DST4R.
+    </p>
+  </header>
 
-<div class="project">
-<div class="project-title">C00lGUI v9 Reimagined</div>
-<div class="project-desc">
-An emulation close to the original C00lGUI with added functionality.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/C00lGUI" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://ac1dst4r.github.io/C00lGUI" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+  <main class="projects">
 
-<div class="project">
-<div class="project-title">Minecraft</div>
-<div class="project-desc">
-Educational port of Minecraft from eaglercraft.com.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/Minecraft/" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://ac1dst4r.github.io/Minecraft/" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+    <!-- 90 -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">90</div>
+        <div class="project-type">Game</div>
+      </div>
 
-<div class="project">
-<div class="project-title">Web Ports</div>
-<div class="project-desc">
-Collection of browser ports originally from gnmath.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/Web-Ports" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://ac1dst4r.github.io/Web-Ports/" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+      <div class="project-desc">
+        A browser-based A-90 experience featuring warnings, stillness detection,
+        attacks, and jumpscare mechanics.
+      </div>
 
-<div class="project">
-<div class="project-title">Webhook'd</div>
-<div class="project-desc">
-Send messages and embeds through Discord webhooks.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/Webhooked" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://ac1dst4r.github.io/Webhooked/" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/90"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
 
-<div class="project">
-<div class="project-title">Audio Visualizer</div>
-<div class="project-desc">
-Simple audio visualizer and oscilloscope experiment.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/Audio-Visualizer" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://ac1dst4r.github.io/Audio-Visualizer/" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+        <a class="btn primary"
+           href="https://ac1dst4r.github.io/90/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
 
-<div class="project">
-<div class="project-title">File Extension Creator</div>
-<div class="project-desc">
-Create and download files with custom extensions instantly.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/File-Creator" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://ac1dst4r.github.io/File-Creator/" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+    <!-- A90B -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">A90B</div>
+        <div class="project-type">Quest 3 VR</div>
+      </div>
 
-<div class="project">
-<div class="project-title">.acid File Encoder / Decoder</div>
-<div class="project-desc">
-Custom .acid file encryptor and decryptor supporting all file types.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/.acid-file-encryptor" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://ac1dst4r.github.io/.acid-file-encryptor/" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+      <div class="project-desc">
+        An immersive Meta Quest 3 exclusive adaptation of A-90b, designed around
+        passthrough VR and full-screen mixed-reality immersion.
+      </div>
 
-<div class="project">
-<div class="project-title">Gitchat v1</div>
-<div class="project-desc">
-Lightweight chat application.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/GitChatV1" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://ac1dst4r.github.io/GitChatV1/" target="_blank" rel="noopener">Website</a>
-</div>
-</div>
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/a90b"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
 
-<div class="project">
-<div class="project-title">Autoclear History Extension v1.2</div>
-<div class="project-desc">
-Browser extension that automatically clears history.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/History-Autoclear-Extension-V1.2" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://addons.mozilla.org/en-US/firefox/addon/ac1d-s-auto-history-clearer/" target="_blank" rel="noopener">Extension</a>
-</div>
-</div>
+        <a class="btn quest"
+           href="https://ac1dst4r.github.io/a90b/"
+           target="_blank"
+           rel="noopener">
+          Quest 3 Experience
+        </a>
+      </div>
+    </article>
 
-<div class="project">
-<div class="project-title">Graphite v1.0</div>
-<div class="project-desc">
-Graphite theme for Firefox.
-</div>
-<div class="buttons">
-<a class="btn" href="https://github.com/AC1DST4R/Graphite-v1.0" target="_blank" rel="noopener">Repository</a>
-<a class="btn primary" href="https://addons.mozilla.org/en-US/firefox/addon/graphite_v1/" target="_blank" rel="noopener">Extension</a>
-</div>
-</div>
+    <!-- Audio Visualizer -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Audio Visualizer</div>
+        <div class="project-type">Tool</div>
+      </div>
 
-<div class="project">
-<div class="project-title">Coming Soon</div>
-<div class="project-desc">
-More projects are currently in development.
-</div>
-<div class="buttons">
-<a class="btn" aria-disabled="true">Repository</a>
-<a class="btn" aria-disabled="true">Website</a>
-</div>
-</div>
+      <div class="project-desc">
+        A simple real-time audio visualizer and oscilloscope experiment.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Audio-Visualizer"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://ac1dst4r.github.io/Audio-Visualizer/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
+
+    <!-- Black_Knife -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Black_Knife</div>
+        <div class="project-type">Project</div>
+      </div>
+
+      <div class="project-desc">
+        A new experimental project currently under development.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Black_Knife"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+      </div>
+    </article>
+
+    <!-- Beginner HTML Sandbox -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Beginner HTML Sandbox</div>
+        <div class="project-type">Sandbox</div>
+      </div>
+
+      <div class="project-desc">
+        A sandbox for testing ideas, features, experiments, and random web
+        development concepts.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Code-Sandbox/tree/main"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://AC1DST4R.github.io/Code-Sandbox/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
+
+    <!-- C00lGUI -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">C00lGUI v9 Reimagined</div>
+        <div class="project-type">Project</div>
+      </div>
+
+      <div class="project-desc">
+        An emulation close to the original C00lGUI with additional functionality
+        and improvements.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/C00lGUI"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://ac1dst4r.github.io/C00lGUI/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
+
+    <!-- File Creator -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">File Extension Creator</div>
+        <div class="project-type">Tool</div>
+      </div>
+
+      <div class="project-desc">
+        Create and download files with custom extensions instantly.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/File-Creator"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://ac1dst4r.github.io/File-Creator/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
+
+    <!-- GitChat -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">GitChat v1</div>
+        <div class="project-type">App</div>
+      </div>
+
+      <div class="project-desc">
+        A lightweight web-based chat application.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/GitChatV1"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://ac1dst4r.github.io/GitChatV1/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
+
+    <!-- Graphite -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Graphite v1.0</div>
+        <div class="project-type">Firefox</div>
+      </div>
+
+      <div class="project-desc">
+        A dark Graphite-inspired theme for Firefox.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Graphite-v1.0"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://addons.mozilla.org/en-US/firefox/addon/graphite_v1/"
+           target="_blank"
+           rel="noopener">
+          Extension
+        </a>
+      </div>
+    </article>
+
+    <!-- History Autoclear -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Autoclear History Extension v1.2</div>
+        <div class="project-type">Firefox</div>
+      </div>
+
+      <div class="project-desc">
+        A browser extension that automatically clears browsing history.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/History-Autoclear-Extension-V1.2"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://addons.mozilla.org/en-US/firefox/addon/ac1d-s-auto-history-clearer/"
+           target="_blank"
+           rel="noopener">
+          Extension
+        </a>
+      </div>
+    </article>
+
+    <!-- Memorizebyheart -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Memorizebyheart</div>
+        <div class="project-type">Web App</div>
+      </div>
+
+      <div class="project-desc">
+        A feature-rich memorization and study experience inspired by
+        MemorizeByHeart.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Memorizebyheart"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+      </div>
+    </article>
+
+    <!-- Minecraft -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Minecraft</div>
+        <div class="project-type">Web Port</div>
+      </div>
+
+      <div class="project-desc">
+        An educational browser port of Minecraft from Eaglercraft.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Minecraft/"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://ac1dst4r.github.io/Minecraft/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
+
+    <!-- MineSwept -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">MineSwept</div>
+        <div class="project-type">Game</div>
+      </div>
+
+      <div class="project-desc">
+        A Minesweeper-inspired browser game with additional mechanics and
+        experiments.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/MineSwept"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+      </div>
+    </article>
+
+    <!-- Service Hour Tracker -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Service Hour Tracker</div>
+        <div class="project-type">Tool</div>
+      </div>
+
+      <div class="project-desc">
+        A simple web tool for tracking, managing, and calculating service
+        hours.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Service-Hour-Tracker"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://AC1DST4R.github.io/Service-Hour-Tracker/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
+
+    <!-- Web Ports -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Web Ports</div>
+        <div class="project-type">Collection</div>
+      </div>
+
+      <div class="project-desc">
+        A collection of browser ports originally hosted through gn-math.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Web-Ports"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://ac1dst4r.github.io/Web-Ports/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
+
+    <!-- Webhook'd -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Webhook'd</div>
+        <div class="project-type">Discord Tool</div>
+      </div>
+
+      <div class="project-desc">
+        Send messages and embeds through Discord webhooks from a simple
+        interface.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Webhooked"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+
+        <a class="btn primary"
+           href="https://ac1dst4r.github.io/Webhooked/"
+           target="_blank"
+           rel="noopener">
+          Website
+        </a>
+      </div>
+    </article>
+
+    <!-- Website Down Detector -->
+    <article class="project">
+      <div class="project-header">
+        <div class="project-title">Website Down Detector</div>
+        <div class="project-type">Utility</div>
+      </div>
+
+      <div class="project-desc">
+        A down detector for the websites hosted and maintained by AC1DST4R.
+      </div>
+
+      <div class="buttons">
+        <a class="btn"
+           href="https://github.com/AC1DST4R/Website-Down-Detector"
+           target="_blank"
+           rel="noopener">
+          Repository
+        </a>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    AC1DST4R · Projects, experiments & tools
+  </footer>
 
 </div>
 
